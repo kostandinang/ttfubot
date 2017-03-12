@@ -9,9 +9,10 @@ const Config = {
 	REDIS_KEY_PREFIX: process.env.REDIS_KEY_PREFIX || '',
 	TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
 	BOT_USERNAME: process.env.BOT_USERNAME,
-	
+
 	//Constants
-	POLL_INTERVAL: 1000
+	QUEUE_KEY: 'updates_queue',
+	POLL_INTERVAL: 500
 };
 
 module.exports = Config;

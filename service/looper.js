@@ -5,13 +5,14 @@ const
 
 module.exports = class PollInterval {
 
-	constructor(exec) {
+	constructor(exec, duration) {
 		this.exec = exec;
 		this.interval = null;
+		this.duration = duration;
 	}
 
 	start() {
-		this.interval = setInterval(this.exec, Config.POLL_INTERVAL);
+		this.interval = setInterval(this.exec, this.duration);
 	}
 
 	stop() {

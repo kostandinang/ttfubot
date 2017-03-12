@@ -1,9 +1,8 @@
 'use strict';
 
 const
+	Config = require('../config'),
 	Db = require('../lib/redis');
-
-const QUEUE_KEY = 'updates_queue';
 
 module.exports = class UpdatesQueue {
 
@@ -12,7 +11,7 @@ module.exports = class UpdatesQueue {
 	}
 
 	push(obj) {
-		Db.lpush(QUEUE_KEY, obj);
+		Db.lpush(Config.QUEUE_KEY, obj);
 	}
 	
 }
