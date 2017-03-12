@@ -1,0 +1,9 @@
+version: "2"
+services:
+  redis:
+    image: redis
+    container_name: ttfu_redis
+    ports:
+      - "6379:6379"
+    environment: 
+      TERM: xterm
