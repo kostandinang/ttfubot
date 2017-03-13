@@ -2,6 +2,7 @@
 
 const
 	Bot = require('../lib/bot'),
+	Db = require('../lib/redis'),
 	Config = require('../config'),
 	Queue = require('./queue'),
 	Looper = require('./looper'),
@@ -25,7 +26,9 @@ module.exports = class Poll {
 				this.lastUpdateID = result[result.length - 1].update_id;
 				result.forEach(val => {
 					console.log(JSON.stringify(val));
-					Commands.run(val.message);
+					if (val.update_id >= this.lastUpdateID) {
+						Commands.run(val.message);
+					}
 				})
 			}
 			console.log('Poll: ' + result.length);
