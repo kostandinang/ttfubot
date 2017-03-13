@@ -5,7 +5,6 @@ const
 	Config = require('../config'),
 	Queue = require('./queue'),
 	Looper = require('./looper'),
-	Runner = require('./runner'),
 	Commands = require('../lib/commands')
 
 module.exports = class Poll {

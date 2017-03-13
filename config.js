@@ -9,6 +9,7 @@ const Config = {
 	REDIS_KEY_PREFIX: process.env.REDIS_KEY_PREFIX || '',
 	TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
 	BOT_USERNAME: process.env.BOT_USERNAME,
+	ADMINISTRATOR_USERNAME: process.env.ADMINISTRATOR_USERNAME,
 
 	//Constants
 	QUEUE_KEY: 'updates_queue',
