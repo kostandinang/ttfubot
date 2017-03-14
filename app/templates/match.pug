@@ -1,0 +1,10 @@
+extends includes/layout.pug
+
+block content
+
+	ul
+		if data
+			each match in data
+				li= match
+		else
+			include includes/empty.pug

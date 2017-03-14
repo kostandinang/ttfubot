@@ -1,0 +1,48 @@
+- 
+	var menu = [
+		{
+			title: 'Home',
+			subtitle: '',
+			url: '/',
+			icon: 'home'
+		},
+	{
+			title: 'Users',
+			subtitle: '',
+			url: '/user',
+			icon: 'supervisor_account'
+		},
+		{
+			title: 'Match',
+			subtitle: '',
+			url: '/match',
+			icon: 'view_agenda'
+		},
+		{
+			title: 'Log',
+			subtitle: '',
+			url: '/log',
+			icon: 'find_in_page'
+		},
+		{
+			title: 'Logout',
+			subtitle: '',
+			url: '/logout',
+			icon: 'exit_to_app'
+		}
+	]
+	var active = menu[0];
+
+nav
+	.nav-wrapper.light-blue.darken-3
+			a.container.title-logo(href='/', class='brand-logo')
+				i.large.material-icons insert_chart
+				span= active.title
+			ul(class='right')
+				each item in menu
+					li
+						a(href=`${item.url}`)
+							i.material-icons= item.icon
+script.
+		
+	

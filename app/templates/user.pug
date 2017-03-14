@@ -1,0 +1,9 @@
+extends includes/layout.pug
+
+block content
+	ul
+		each user in data
+			- user = JSON.parse(user)
+			div.card.col.s6
+				.card-content
+					.card-title= user.first_name

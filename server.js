@@ -1,9 +1,13 @@
 'use strict';
 
 const
+	App = require('./app'),
 	Poll = require('./service/poll');
 
-let poll = new Poll();
-poll.start();
+// Start web App
+new App().start();
+
+// Start Polling
+new Poll().start();
 
 //Runner.exec();

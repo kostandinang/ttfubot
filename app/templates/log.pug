@@ -1,0 +1,23 @@
+extends includes/layout.pug
+
+block content
+	.card
+		.card-content
+			div.card-title Log Management
+			p
+				if data
+					table.highlight
+						thead
+							tr
+								th(data-field='id') Id
+								th(data-field='user') User
+								th(data-field='action') Action
+								th(data-field='action') Description
+						tbody
+							each log in data
+								- log = JSON.parse(log);
+								tr
+									td= log.id
+									td= log.user
+									td= log.action
+									td= log.data
