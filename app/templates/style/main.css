@@ -1,3 +1,7 @@
 body {
 	background-color: #efefef;
 }
+
+.stats-container > .card {
+	height: 200px !important;
+}

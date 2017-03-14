@@ -34,15 +34,15 @@
 	var active = menu[0];
 
 nav
-	.nav-wrapper.light-blue.darken-3
-			a.container.title-logo(href='/', class='brand-logo')
-				i.large.material-icons insert_chart
-				span= active.title
+	.nav-wrapper.red
+			a(href='/', class='brand-logo')
+				span(style='margin-left: 10px; display: block')
+					i.material-icons toys
+					span= APP_TITLE
 			ul(class='right')
 				each item in menu
 					li
 						a(href=`${item.url}`)
 							i.material-icons= item.icon
-script.
 		
 	

@@ -11,6 +11,37 @@ html
 			include menu.pug
 		
 		div.container.s12.m6
+			.row
 			block content
+			
 		script(src="https://code.jquery.com/jquery-3.1.1.min.js")
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js")
+		
+		script.
+			
+			$(document).ready(function(){
+				$('.modal').modal();
+			});
+
+			$('#deleteMatchBtn').on('click', function() {
+				$.ajax({
+					type: 'DELETE',
+					url: '/match',
+					success: function(res) {
+						location.reload();
+					}
+				})
+			})
+			
+			$('#bcastBtn').on('click', function() {
+				$.ajax({
+					type: 'POST',
+					url: '/broadcast',
+					data: {
+						message: $('#bcastInput').val()
+					},
+					success: function(res) {
+						console.log('Broadcasted successfuly !')
+					}
+				})
+			})

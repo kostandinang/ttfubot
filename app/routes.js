@@ -3,6 +3,7 @@
 const 
 	Match = require('./models/match'),
 	Log = require('./models/log'),
+	Home = require('./models/home'),
 	User = require('./models/user');
 
 const ROUTES = [
@@ -15,6 +16,11 @@ const ROUTES = [
 		handler: (request, reply) => {
 			return reply.view('index');
 		}
+	},
+	{
+		method: 'POST',
+		path: '/broadcast',
+		handler: Home.broadcast
 	},
 
 	/**
@@ -34,9 +40,19 @@ const ROUTES = [
 		path: '/match',
 		handler: Match.getActive
 	},
-
+	{
+		method: 'POST',
+		path: '/match',
+		handler: Match.update
+	},
+	{
+		method: 'DELETE',
+		path: '/match',
+		handler: Match.remove
+	},
+	
 	/**
-	 * Match
+	 * Log
 	 */
 	{
 		method: 'GET',

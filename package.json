@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha",
-		"start": "node server.js"
+		"start": "nodemon -e js,pug server.js"
 	},
 	"keywords": [
 		"ttfu",

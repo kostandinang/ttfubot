@@ -2,9 +2,34 @@ extends includes/layout.pug
 
 block content
 
-	ul
-		if data
-			each match in data
-				li= match
-		else
-			include includes/empty.pug
+	if data
+		.card
+			.card-content
+				.card-title Active Match
+				p= data
+				button#deleteMatchBtn.btn.waves-effect.waves-light.red(type='button') Delete
+	else
+		include includes/empty.pug
+
+	//- Match modal
+	div#updateMatch.modal.modal-fixed-footer
+		form(action='/match', method='post')
+			.modal-content
+					.row
+						.input-field.col.s12
+							input(id='form_location', name='location', type='text')
+							label(for='form_location') Location
+					.row
+						.input-field.col.s12
+							input(id='form_datetime', name='date', type='text')
+							label(for='form_location') Date
+					.row
+						.input-field.col.s12
+							textarea.materialize-textarea(id='form_desc', name='desc', type='text')
+							label(for='form_desc') Description
+			.modal-footer
+				button.btn.waves-effect.waves-light.blue Submit
+
+	.fixed-action-btn
+		a(class="btn-floating btn-large waves-effect waves-light blue", href='#updateMatch')
+			i(class="material-icons") add
