@@ -15,6 +15,7 @@ block content
 	div#updateMatch.modal.modal-fixed-footer
 		form(action='/match', method='post')
 			.modal-content
+					h5 Match Details
 					.row
 						.input-field.col.s12
 							input(id='form_location', name='location', type='text')
@@ -27,6 +28,17 @@ block content
 						.input-field.col.s12
 							textarea.materialize-textarea(id='form_desc', name='desc', type='text')
 							label(for='form_desc') Description
+					.row
+						.input-field.col.s6
+							input(id='form_max', name='max', type='number', max='20', min='10', value='10')
+							label(for='form_max') Max
+						.input-field.col.s6
+							.switch
+								label 
+									span Silent
+									input(type='checkbox', name='notify')
+									span.lever
+									span Notify
 			.modal-footer
 				button.btn.waves-effect.waves-light.blue Submit
 

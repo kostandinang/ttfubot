@@ -25,9 +25,12 @@ module.exports = class Poll {
 			if (result.length > 0) {
 				this.lastUpdateID = result[result.length - 1].update_id;
 				result.forEach(val => {
-					console.log(JSON.stringify(val));
-					if (val.update_id >= this.lastUpdateID) {
-						Commands.run(val.message);
+					if (val.callback_query) {
+							Commands.callback(val.callback_query);
+					} else {
+						if (val.update_id >= this.lastUpdateID) {
+							Commands.run(val.message);
+						}
 					}
 				})
 			}

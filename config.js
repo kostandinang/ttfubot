@@ -10,6 +10,7 @@ const Config = {
 	TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
 	BOT_USERNAME: process.env.BOT_USERNAME,
 	ADMINISTRATOR_USERNAME: process.env.ADMINISTRATOR_USERNAME,
+	PUBLIC_HOST: process.env.PUBLIC_HOST || 'http://127.0.0.1:3000/',
 
 	//Constants
 	QUEUE_KEY: 'updates_queue',

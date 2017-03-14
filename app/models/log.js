@@ -13,7 +13,7 @@ module.exports = class Match {
 	 */
 	static get(request, reply) {
 
-		Db.lrange('logs', 0, 10).then(result => {
+		Db.lrange('logs', 0, 250).then(result => {
 			Util.render(reply, 'log', result);
 		}).catch(err => {
 			Util.renderError(reply, err);

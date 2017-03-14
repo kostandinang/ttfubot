@@ -14,10 +14,14 @@ block content
 								th(data-field='action') Action
 								th(data-field='action') Description
 						tbody
-							each log in data
-								- log = JSON.parse(log);
-								tr
-									td= log.id
-									td= log.user
-									td= log.action
-									td= log.data
+							if data && data.length > 0
+								each log in data
+									- log = JSON.parse(log);
+									tr
+										td= log.id
+										td= log.user
+										td= log.action
+										td
+											button.btn.btn-primary(class='logViewBtn')
+												i.material-icons remove_red_eye			
+											
