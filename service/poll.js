@@ -29,6 +29,7 @@ module.exports = class Poll {
 							Commands.callback(val.callback_query);
 					} else {
 						if (val.update_id >= this.lastUpdateID) {
+							this.lastUpdateID = val.update_id;
 							Commands.run(val.message);
 						}
 					}
