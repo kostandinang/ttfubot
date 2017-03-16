@@ -23,3 +23,11 @@ body {
 .actionbtn:hover {
 	transform: scale(1.1);
 }
+
+td:last-child {
+	text-align: right;
+}
+
+td i {
+	font-size: 22px !important;
+}

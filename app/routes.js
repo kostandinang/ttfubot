@@ -64,6 +64,11 @@ const ROUTES = [
 		path: '/match/user',
 		handler: Match.removeMatchUser
 	},
+	{
+		method: 'POST',
+		path: '/match/request',
+		handler: Match.request
+	},
 	
 	/**
 	 * Log

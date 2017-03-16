@@ -57,10 +57,21 @@ html
 				})
 			})
 
-			$('#deleteMatchUserBtn').on('click', function(e) {
+			$('.deleteMatchUserBtn').on('click', function(e) {
 				$.ajax({
 					type: 'DELETE',
 					url: '/match/user',
+					data: {userid: e.target.getAttribute('data-userid')},
+					success: function(res) {
+						location.reload();
+					}
+				})
+			})
+
+			$('.sendMatchRequestBtn').on('click', function(e) {
+				$.ajax({
+					type: 'POST',
+					url: '/match/request',
 					data: {userid: e.target.getAttribute('data-userid')},
 					success: function(res) {
 						location.reload();

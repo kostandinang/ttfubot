@@ -53,7 +53,7 @@ module.exports = class Match {
 			Db.del('match_users').then(deleted => {
 				if (deleted)
 					reply({ success: 1 });
-				else 
+				else
 					reply({ success: 0 });
 			})
 		}).catch(err => {
@@ -65,8 +65,16 @@ module.exports = class Match {
 		Db.lrem('match_users', 1, request.payload.userid).then(deleted => {
 			if (deleted)
 				reply({ success: 1 });
-			else 
+			else
 				reply({ success: 0 });
+		}).catch(err => {
+			reply(Boom.badRequest(err.message));
+		})
+	}
+
+	static request(request, reply) {
+		Commands.public.request(null, request.payload.userid).then(res => {
+			if (res) reply({sucess: 1})
 		}).catch(err => {
 			reply(Boom.badRequest(err.message));
 		})

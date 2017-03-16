@@ -1,6 +1,5 @@
 'use strict';
 
-console.log(process.env.ENVIRONMENT);
 require('dotenv').config({
 	path: process.env.ENVIRONMENT == 'production' ? './.env' : './.dev.env'
 });
