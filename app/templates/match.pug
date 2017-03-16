@@ -48,7 +48,7 @@ block content
 									- user = JSON.parse(user);
 									tr
 										td= user.id
-										td= user.username
+										td= user.username || user.first_name || '-'
 										td
 											i.sendUserMessageBtn.actionbtn.material-icons(data-userid=user.id) message
 											i#deleteMatchUserBtn.actionbtn.material-icons(data-userid=user.id) delete
