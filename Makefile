@@ -15,8 +15,8 @@ down:
 reload:
 	@npm run reload
 
-logs:
-	@npm log
+log:
+	@npm run log
 
 run-test:
 	@npm test
