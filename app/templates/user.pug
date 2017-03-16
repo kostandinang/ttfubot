@@ -25,5 +25,6 @@ block content
 										td= user.last_name || '-'
 										td= user.time || '-'
 										td.action-buttons
-											i.sendUserMessageBtn.actionbtn.material-icons(data-userid=user.id) message
-											i#deleteUserBtn.actionbtn.material-icons(data-userid=user.id) delete		
+											i.sendMatchRequestBtn.actionbtn.material-icons.blue-text.blue-text(data-userid=user.id) cloud_upload
+											i.sendUserMessageBtn.actionbtn.material-icons.green-text(data-userid=user.id) message
+											i.deleteUserBtn.actionbtn.material-icons.red-text(data-userid=user.id) delete		
