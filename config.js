@@ -1,6 +1,9 @@
 'use strict';
 
-require('dotenv').config();
+console.log(process.env.ENVIRONMENT);
+require('dotenv').config({
+	path: process.env.ENVIRONMENT == 'production' ? './.env' : './.dev.env'
+});
 
 const Config = {
 	

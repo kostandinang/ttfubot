@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha",
-		"dev": "nodemon -e js,pug,css server.js",
+		"dev": "ENVIRONMENT=development nodemon -e js,pug,css server.js",
 		"start": "./node_modules/pm2/bin/pm2 start server.js -i -1",
 		"stop": "./node_modules/pm2/bin/pm2 stop all",
 		"reload": "./node_modules/pm2/bin/pm2 restart all",
