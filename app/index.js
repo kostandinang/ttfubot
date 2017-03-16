@@ -1,7 +1,9 @@
 'use strict';
 
 const
-	Hapi = require('hapi'),
+	Hapi = require('hapi'),	
+	Inert = require('inert'),
+	Path = require('path'),
 	Vision = require('vision'),
 	Config = require('./config');
 
@@ -22,9 +24,22 @@ module.exports = class App {
 
 		Server.connection({
 			host: HOST,
-			port: PORT
+			port: PORT,
+			// routes: {
+			// 	files: {
+			// 		relativeTo: Path.join(__dirname, 'public')
+			// 	}
+			// }
 		})
 
+		/**
+		 * Registers Inert
+		 */
+		Server.register(Inert, () => {});
+
+		/**
+		 * Register View
+		 */
 		Server.register(
 			Vision, err => {
 				if (err) console.error('Failed to load Vision');
@@ -39,6 +54,9 @@ module.exports = class App {
 			}
 		)
 
+		/**
+		 * Start Server 
+		 */
 		Server.start(err => {
 			if (err) {
 				throw err;

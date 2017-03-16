@@ -1,6 +1,15 @@
-extends includes/layout.pug
+extends includes/layout.pug		
 
+//- Content
 block content
+
+	//- Modal
+	div#logViewModal.modal.modal-fixed-footer
+		.modal-content
+			h5 Log View
+				.row
+					p#logContent
+
 	.card
 		.card-content
 			div.card-title Log Management
@@ -12,7 +21,7 @@ block content
 								th(data-field='id') Id
 								th(data-field='user') User
 								th(data-field='action') Action
-								th(data-field='action') Description
+								th(data-field='action')
 						tbody
 							if data && data.length > 0
 								each log in data
@@ -22,6 +31,9 @@ block content
 										td= log.user
 										td= log.action
 										td
-											button.btn.btn-primary(class='logViewBtn')
-												i.material-icons remove_red_eye			
-											
+											i.logViewBtn.actionbtn.material-icons(data-target='logViewModal', data-logid=log.id) remove_red_eye
+				else
+					include includes/empty.pug
+	.fixed-action-btn
+		button#removeLogsBtn(class="btn-floating btn-large waves-effect waves-light red")
+			i(class="material-icons") delete

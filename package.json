@@ -5,7 +5,7 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "./node_modules/mocha/bin/mocha",
-		"dev": "nodemon -e js,pug server.js",
+		"dev": "nodemon -e js,pug,css server.js",
 		"start": "./node_modules/pm2/bin/pm2 start server.js -i -1",
 		"stop": "./node_modules/pm2/bin/pm2 stop all"
 	},
@@ -23,6 +23,7 @@
 		"boom": "^4.2.0",
 		"dotenv": "^4.0.0",
 		"hapi": "^16.1.0",
+		"inert": "^4.1.0",
 		"ioredis": "^2.5.0",
 		"lodash": "^4.17.4",
 		"moment": "^2.17.1",

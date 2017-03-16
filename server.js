@@ -9,5 +9,3 @@ new App().start();
 
 // Start Polling
 new Poll().start();
-
-//Runner.exec();

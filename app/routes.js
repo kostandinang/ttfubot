@@ -18,6 +18,15 @@ const ROUTES = [
 		}
 	},
 	{
+		method: 'GET',
+		path: '/public/{param*}',
+		handler: {
+			directory: {
+            path: __dirname + '/public'
+        }
+		}
+	},
+	{
 		method: 'POST',
 		path: '/broadcast',
 		handler: Home.broadcast
@@ -38,7 +47,7 @@ const ROUTES = [
 	{
 		method: 'GET',
 		path: '/match',
-		handler: Match.getActive
+		handler: Match.get
 	},
 	{
 		method: 'POST',
@@ -50,6 +59,11 @@ const ROUTES = [
 		path: '/match',
 		handler: Match.remove
 	},
+	{
+		method: 'DELETE',
+		path: '/match/user',
+		handler: Match.removeMatchUser
+	},
 	
 	/**
 	 * Log
@@ -58,6 +72,12 @@ const ROUTES = [
 		method: 'GET',
 		path: '/log',
 		handler: Log.get
+	},
+
+	{
+		method: 'DELETE',
+		path: '/log',
+		handler: Log.clear
 	}
 ]
 

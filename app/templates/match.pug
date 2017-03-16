@@ -2,14 +2,61 @@ extends includes/layout.pug
 
 block content
 
-	if data
+	if data && data.match
+		- data.match = JSON.parse(data.match)
+		.row
+			.col.s6
+				.card
+					.card-image
+						img(src='/public/img/bg.jpg')
+						span.card-title 
+							span= 'Match on ' + data.match.date
+							br
+							b= '@' + data.match.location
+							h1= '#: ' + data.matchUsers.length
+						button#deleteMatchBtn(class="btn-floating halfway-fab waves-effect waves-light red")
+							i(class="material-icons") delete
+					.card-content
+						.row
+							.col.m6
+								b Location
+								p= data.match.location
+							.col.m6
+								b Date
+								p= data.match.date
+						.row
+							.col
+								b Info
+								p= data.match.desc
+						button.btn.waves-effect.waves-light(type='button') Start
+			
+			.col.s6
+				.card
+					.card-content
+						.card-title 
+							.header
+								i(class='fa fa-user')
+								span User
+						table.table
+							thead
+								tr
+									th ID
+									th Username
+									th 
+							tbody
+								each user in data.matchUsers
+									- user = JSON.parse(user);
+									tr
+										td= user.id
+										td= user.username
+										td
+											i.sendUserMessageBtn.actionbtn.material-icons(data-userid=user.id) message
+											i#deleteMatchUserBtn.actionbtn.material-icons(data-userid=user.id) delete
+											
+	else
 		.card
 			.card-content
-				.card-title Active Match
-				p= data
-				button#deleteMatchBtn.btn.waves-effect.waves-light.red(type='button') Delete
-	else
-		include includes/empty.pug
+				include includes/empty.pug
 
 	//- Match modal
 	div#updateMatch.modal.modal-fixed-footer
@@ -30,7 +77,7 @@ block content
 							label(for='form_desc') Description
 					.row
 						.input-field.col.s6
-							input(id='form_max', name='max', type='number', max='20', min='10', value='10')
+							input(id='form_max', name='max', type='number', max='20', min='0', value='2')
 							label(for='form_max') Max
 						.input-field.col.s6
 							.switch
@@ -43,5 +90,5 @@ block content
 				button.btn.waves-effect.waves-light.blue Submit
 
 	.fixed-action-btn
-		a(class="btn-floating btn-large waves-effect waves-light blue", href='#updateMatch')
-			i(class="material-icons") add
+		a(class="btn-floating btn-large waves-effect waves-light red", href='#updateMatch')
+			i(class="material-icons")= (data && data.match) ? 'edit' : 'add'

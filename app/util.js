@@ -1,5 +1,8 @@
 'use strict';
 
+const
+	Config = require('../config');
+
 module.exports = {
 	
 	render: (reply, template, data) => {

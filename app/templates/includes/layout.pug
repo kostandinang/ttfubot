@@ -4,6 +4,7 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(href="http://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
 		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css")
+		link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
 		style
 			include ../style/main.css
 	body
@@ -32,6 +33,16 @@ html
 					}
 				})
 			})
+
+			$('#removeLogsBtn').on('click', function() {
+				$.ajax({
+					type: 'DELETE',
+					url: '/log',
+					success: function(res) {
+						location.reload();
+					}
+				})
+			})
 			
 			$('#bcastBtn').on('click', function() {
 				$.ajax({
@@ -42,6 +53,17 @@ html
 					},
 					success: function(res) {
 						console.log('Broadcasted successfuly !')
+					}
+				})
+			})
+
+			$('#deleteMatchUserBtn').on('click', function(e) {
+				$.ajax({
+					type: 'DELETE',
+					url: '/match/user',
+					data: {userid: e.target.getAttribute('data-userid')},
+					success: function(res) {
+						location.reload();
 					}
 				})
 			})

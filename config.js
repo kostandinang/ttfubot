@@ -15,6 +15,7 @@ const Config = {
 	//Constants
 	QUEUE_KEY: 'updates_queue',
 	POLL_INTERVAL: 500
+	
 };
 
 module.exports = Config;
