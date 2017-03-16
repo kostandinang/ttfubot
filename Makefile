@@ -12,6 +12,12 @@ down:
 	@docker-compose stop
 	@npm stop
 
+reload:
+	@npm run reload
+
+logs:
+	@npm log
+
 run-test:
 	@npm test
 
