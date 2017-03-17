@@ -7,7 +7,7 @@ const
 	Util = require('../util');
 
 module.exports = class User {
-	
+
 	/**
 	 * Get stats
 	 * @param {*} request 
@@ -30,11 +30,19 @@ module.exports = class User {
 	}
 
 	static broadcast(request, reply) {
-		Commands.public.broadcastMessage(request.payload.message).then(result => {
-			reply({success: true});
-		}).catch(err => {
-			Util.renderError(reply, err);
-		});
+		if (request.payload.allUsers == "true") {
+			Commands.broadcast(request.payload.message).then(result => {
+				reply({ success: true });
+			}).catch(err => {
+				Util.renderError(reply, err);
+			});
+		} else {
+			Commands.broadcastToMatchUsers(request.payload.message).then(result => {
+				reply({ success: true })
+			}).catch(err => {
+				Util.renderError(reply, err);
+			})
+		}
 	}
 
 }

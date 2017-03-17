@@ -49,7 +49,8 @@ html
 					type: 'POST',
 					url: '/broadcast',
 					data: {
-						message: $('#bcastInput').val()
+						message: $('#bcastInput').val(),
+						allUsers: $('#allUsersChbox').is(':checked')
 					},
 					success: function(res) {
 						console.log('Broadcasted successfuly !')

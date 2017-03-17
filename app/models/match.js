@@ -41,7 +41,7 @@ module.exports = class Match {
 		Db.set('match', val);
 		if (request.payload.notify == 'on') {
 			// Broadcast
-			Commands.public.broadcastMessage(Commands.public.CREATED_MATCH_DETAILS(request.payload), 'CREATE_MATCH');
+			Commands.broadcast(Commands.CREATED_MATCH_DETAILS(request.payload), 'CREATE_MATCH');
 			reply.redirect('match');
 		} else {
 			reply.redirect('match');
@@ -73,7 +73,7 @@ module.exports = class Match {
 	}
 
 	static request(request, reply) {
-		Commands.public.request(null, request.payload.userid).then(res => {
+		Commands.request(null, request.payload.userid).then(res => {
 			if (res) reply({sucess: 1})
 		}).catch(err => {
 			reply(Boom.badRequest(err.message));

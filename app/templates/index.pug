@@ -35,8 +35,18 @@ block content
 					.row
 						.input-field.col.s12
 							textarea.materialize-textarea(type='text', id='bcastInput')
-							label Broadcast a message for registered users
-					button.btn.red.white-text(id='bcastBtn') /bcast	
+							label Broadcast a message for registered users	
+					.row
+						.container
+							.switch
+								label 
+									span Match Users Only
+									input(type='checkbox', id='allUsersChbox')
+									span.lever
+									span All users
+					.row
+						.container
+							button.btn.red.white-text(id='bcastBtn') /bcast	
 		.col.s6(style='max-height: 200px; heght: auto')
 			.card
 				.card-content
